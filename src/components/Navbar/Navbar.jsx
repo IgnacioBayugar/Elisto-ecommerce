@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { fetchProducts } from '../../utils/fetchProducts';
 import { getCategories } from '../../utils/getCategories';
 import WidgetCart from '../WidgetCart';
 import './Navbar.scss';
@@ -7,16 +6,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
   const [categories, setCategories] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
-      const products = await fetchProducts();
-      const uniqueCategories = getCategories(products);
+      const uniqueCategories = await getCategories();
       setCategories(uniqueCategories);
     }
 
     loadCategories();
   }, []);
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (!event.target.closest('.nav-item.dropdown')) {
+        setDropdownOpen(false);
+      }
+    }
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownOpen]);
 
   return (
     <nav className="idb-navbar navbar navbar-light">
@@ -45,18 +64,18 @@ function Navbar() {
           </div>
         </div>
         <div className="row w-100 mt-3">
-          <div className="col">
-            <ul className="navbar-nav d-flex justify-content-center flex-row align-items-center">
-              <li className="nav-item dropdown">
+          <div className="col d-flex justify-content-center">
+            <ul className="navbar-nav flex-row align-items-center">
+              <li className={`nav-item dropdown${dropdownOpen ? ' show' : ''}`} style={{ position: 'relative' }}>
                 <button
                   className="btn idb-dropdown dropdown-toggle"
                   type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  aria-expanded={dropdownOpen}
+                  onClick={handleDropdownToggle}
                 >
                   Categories
                 </button>
-                <ul className="idb-dropdown dropdown-menu dropdown-menu-dark">
+                <ul className={`idb-dropdown dropdown-menu dropdown-menu-dark${dropdownOpen ? ' show' : ''}`} style={{ position: 'absolute', left: 0, top: '100%', minWidth: '200px', zIndex: 1000 }}>
                   {categories.map(category => (
                     <li key={category}>
                       <a href={`#${category}`} className="dropdown-item">
