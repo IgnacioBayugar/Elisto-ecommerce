@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { fetchProducts } from '../../api/productApi';
+import { fetchProductsByCategory } from '../../api/productApi';
 import Product from '../Product/Product';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function ProductList() {
+function ProductList({ category }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await fetchProducts();
+      const data = await fetchProductsByCategory(10);
       setProducts(data);
       setLoading(false);
     }
@@ -18,10 +18,14 @@ function ProductList() {
 
   if (loading) return <div className="text-center py-5">Cargando productos...</div>;
 
+  const filteredProducts = category
+    ? products.filter(product => product.category === category)
+    : products;
+
   return (
     <div className="idb-product-list container py-4">
       <div className="row g-4">
-        {products.map(product => (
+        {filteredProducts.map(product => (
           <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={product.id}>
             <Product product={product} />
           </div>

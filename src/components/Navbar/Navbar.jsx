@@ -4,7 +4,7 @@ import WidgetCart from '../WidgetCart';
 import './Navbar.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Navbar() {
+function Navbar({ onCategorySelect }) {
   const [categories, setCategories] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -19,6 +19,13 @@ function Navbar() {
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleCategoryClick = (category) => {
+    setDropdownOpen(false);
+    if (onCategorySelect) {
+      onCategorySelect(category);
+    }
   };
 
   useEffect(() => {
@@ -78,9 +85,13 @@ function Navbar() {
                 <ul className={`idb-dropdown dropdown-menu dropdown-menu-dark${dropdownOpen ? ' show' : ''}`} style={{ position: 'absolute', left: 0, top: '100%', minWidth: '200px', zIndex: 1000 }}>
                   {categories.map(category => (
                     <li key={category}>
-                      <a href={`#${category}`} className="dropdown-item">
+                      <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={() => handleCategoryClick(category)}
+                      >
                         {category}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
