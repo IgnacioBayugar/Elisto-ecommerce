@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchProductsByCategory } from '../../api/productApi';
 import Product from '../Product/Product';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ProductList({ category }) {
   const [products, setProducts] = useState([]);
@@ -24,9 +23,9 @@ function ProductList({ category }) {
 
   return (
     <div className="idb-product-list container py-4">
-      <div className="row g-4">
+      <div className="row g-2">
         {filteredProducts.map(product => (
-          <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={product.id}>
+          <div className="col-6 col-md-4 col-lg-2 d-flex" key={product.id}>
             <Product product={product} />
           </div>
         ))}

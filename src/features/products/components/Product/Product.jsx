@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Product.scss';
+import StarRating from '../../../../components/common/StarRating';
 
 function Product({ product }) {
   if (!product) return null;
@@ -10,10 +11,21 @@ function Product({ product }) {
         alt={product.title}
         className="idb-product-card__image card-img-top"
       />
-      <div className="idb-product-card__body card-body d-flex flex-column justify-content-between">
-        <h3 className="idb-product-card__title card-title mb-2">{product.title}</h3>
-        <p className="idb-product-card__price card-text fw-bold">${product.price}</p>
-        <p className="idb-product-card__description card-text mb-2">{product.description}</p>
+      <div className="idb-product-card__body pt-2 card-body d-flex flex-column justify-content-between">
+        <h5 className="idb-product-card__title mb-1">{product.title}</h5>
+        <div className="idb-product-card__rating mb-2">
+          <StarRating rating={product.rating} />
+        </div>
+        <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1">
+          <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
+          <span
+            className={`idb-product-card__stock badge ${product.stock > 0 ? 'bg-secondary' : 'bg-danger'}`}
+            title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
+          >
+            {product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
+          </span>
+        </div>
+        <p className="idb-product-card__description card-text m-0">{product.description}</p>
       </div>
     </div>
   );
