@@ -1,13 +1,29 @@
 import './Product.scss';
 import { Link } from 'react-router-dom';
 import StarRating from '../../../../components/common/StarRating';
+import { useCart } from '../../../cart/context/CartContext';
 
 function Product({ product }) {
+  const { dispatch } = useCart();
   if (!product) return null;
 
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        thumbnail: product.thumbnail || product.images?.[0],
+        quantity: 1,
+      },
+    });
+  };
+
   return (
-    <Link to={`/product/${product.id}`} className="idb-product-card-link text-decoration-none">
-      <div className="idb-product-card card h-100 shadow-sm">
+    <div className="idb-product-card card h-100 shadow-sm">
+      <Link to={`/product/${product.id}`} className="idb-product-card-link text-decoration-none">
         <img
           src={product.thumbnail || product.images?.[0]}
           alt={product.title}
@@ -29,8 +45,17 @@ function Product({ product }) {
           </div>
           <p className="idb-product-card__description card-text m-0">{product.description}</p>
         </div>
+      </Link>
+      <div className="idb-product-card__actions card-footer bg-transparent border-0 p-2">
+        <button
+          className="idb-product-card__add-to-cart-btn"
+          onClick={handleAddToCart}
+          disabled={product.stock <= 0}
+        >
+          Agregar al carrito
+        </button>
       </div>
-    </Link>
+    </div>
   );
 }
 
