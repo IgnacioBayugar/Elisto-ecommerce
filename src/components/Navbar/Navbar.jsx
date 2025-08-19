@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories } from '../../utils/getCategories';
-import WidgetCart from '../WidgetCart';
+import WidgetCart from '../../features/cart/components/WidgetCart';
 import './Navbar.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

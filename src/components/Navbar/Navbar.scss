@@ -54,7 +54,7 @@ $text-color: #ffffff;
 
     .widget-cart {
       margin-left: 0.5rem;
-      
+
       .btn {
         background-color: $secondary-color;
         color: $text-color;
@@ -69,6 +69,12 @@ $text-color: #ffffff;
           background-color: darken($secondary-color, 10%);
           color: $text-color;
         }
+        position: relative;
+      }
+
+      &__badge {
+        font-size: 0.75rem;
+        border: 1px solid $primary-color;
       }
     }
   }

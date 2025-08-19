@@ -4,20 +4,23 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductList from './features/products/components/ProductList/ProductList';
 import ProductDetail from './features/products/pages/ProductDetail/ProductDetail';
 import { useState } from 'react';
+import { CartProvider } from './features/cart/context/CartContext';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <BrowserRouter>
-      <div>
-        <Navbar onCategorySelect={setSelectedCategory} />
-        <Routes>
-          <Route path="/" element={<ProductList category={selectedCategory} />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <div>
+          <Navbar onCategorySelect={setSelectedCategory} />
+          <Routes>
+            <Route path="/" element={<ProductList category={selectedCategory} />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
