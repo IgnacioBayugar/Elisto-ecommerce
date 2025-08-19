@@ -10,6 +10,7 @@ $secondary-color: #E85234;
    box-shadow: 0 2px 8px #0001;
    display: flex;
    flex-direction: column;
+   border: none;
    height: 100%;
    transition: box-shadow 0.3s, transform 0.3s;
    &:hover {
@@ -22,7 +23,7 @@ $secondary-color: #E85234;
     width: 100%;
     object-fit: cover;
     background: #fff;
-    border-bottom: 1px solid $secondary-color;
+    border-bottom: 1px solid gainsboro;
   }
 
   &__body {

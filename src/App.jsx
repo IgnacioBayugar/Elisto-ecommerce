@@ -1,16 +1,23 @@
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductList from './features/products/components/ProductList/ProductList';
+import ProductDetail from './features/products/pages/ProductDetail/ProductDetail';
 import { useState } from 'react';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div>
-      <Navbar onCategorySelect={setSelectedCategory} />
-      <ProductList category={selectedCategory} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar onCategorySelect={setSelectedCategory} />
+        <Routes>
+          <Route path="/" element={<ProductList category={selectedCategory} />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
