@@ -1,5 +1,6 @@
 import useCart from '../hooks/useCart';
 import CartItem from './CartItem';
+import './CartDropdown.scss';
 
 function CartDropdown() {
   const { state, dispatch } = useCart();

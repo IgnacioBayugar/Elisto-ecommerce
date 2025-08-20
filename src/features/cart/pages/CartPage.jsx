@@ -1,3 +1,4 @@
+import './CartPage.scss';
 import useCart from '../hooks/useCart';
 import CartItem from '../components/CartItem';
 

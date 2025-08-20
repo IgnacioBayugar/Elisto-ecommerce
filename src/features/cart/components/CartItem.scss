@@ -1,0 +1,59 @@
+$primary-color: #004080;
+$secondary-color: #E85234;
+$shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+.idb-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: $shadow;
+
+  &__thumbnail {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #eee;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $primary-color;
+  }
+
+  &__price {
+    font-size: 0.95rem;
+    color: $secondary-color;
+    font-weight: 600;
+  }
+
+  &__quantity {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  &__remove {
+    background: none;
+    border: none;
+    color: $secondary-color;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    &:hover {
+      background: #ffe5e0;
+    }
+  }
+}

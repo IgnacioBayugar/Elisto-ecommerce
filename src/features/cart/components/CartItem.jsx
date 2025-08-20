@@ -1,3 +1,5 @@
+import './CartItem.scss';
+
 function CartItem({ id, title, price, quantity, thumbnail, onRemove }) {
   return (
     <div className="idb-cart-item">

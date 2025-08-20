@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useCart from '../hooks/useCart';
 import CartDropdown from './CartDropdown';
+import './CartWidget.scss';
 
 function WidgetCart() {
   const { state } = useCart();
