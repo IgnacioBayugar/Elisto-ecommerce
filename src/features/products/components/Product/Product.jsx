@@ -1,7 +1,7 @@
 import './Product.scss';
 import { Link } from 'react-router-dom';
 import StarRating from '../../../../components/common/StarRating';
-import { useCart } from '../../../cart/context/CartContext';
+import useCart from '../../../cart/hooks/useCart';
 
 function Product({ product }) {
   const { dispatch } = useCart();

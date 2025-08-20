@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductList from './features/products/components/ProductList/ProductList';
 import ProductDetail from './features/products/pages/ProductDetail/ProductDetail';
+import CartPage from './features/cart/pages/CartPage';
 import { useState } from 'react';
 import { CartProvider } from './features/cart/context/CartContext';
 
@@ -17,6 +18,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<ProductList category={selectedCategory} />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
           <Footer />
         </div>
