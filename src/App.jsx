@@ -6,6 +6,7 @@ import ProductDetail from './features/products/pages/ProductDetail/ProductDetail
 import CartPage from './features/cart/pages/CartPage';
 import { useState } from 'react';
 import { CartProvider } from './features/cart/context/CartContext';
+import CheckoutPage from './features/checkout/pages/CheckoutPage';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/" element={<ProductList category={selectedCategory} />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
           <Footer />
         </div>

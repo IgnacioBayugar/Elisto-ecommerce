@@ -29,10 +29,7 @@ const CheckoutPage = () => {
       ) : (
         <>
           <CheckoutSummary />
-          <CheckoutForm />
-          <button className="idb-checkout-confirm" onClick={handleConfirm}>
-            Confirmar compra
-          </button>
+          <CheckoutForm onConfirm={handleConfirm} />
         </>
       )}
     </div>

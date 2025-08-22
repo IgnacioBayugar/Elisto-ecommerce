@@ -1,4 +1,6 @@
-const CheckoutForm = () => {
+import { useState } from "react";
+
+const CheckoutForm = ({ onConfirm }) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -19,9 +21,11 @@ const CheckoutForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+
   const handleSubmit = e => {
     e.preventDefault();
     if (validate()) {
+      if (onConfirm) onConfirm();
     }
   };
 
@@ -60,6 +64,9 @@ const CheckoutForm = () => {
         />
         {errors.address && <span className="idb-checkout-form__error">{errors.address}</span>}
       </div>
+      <button className="idb-checkout-confirm" type="submit">
+        Confirmar compra
+      </button>
     </form>
   );
 };
