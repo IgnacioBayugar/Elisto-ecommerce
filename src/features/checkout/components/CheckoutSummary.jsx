@@ -1,4 +1,3 @@
-
 import useCart from '../../cart/hooks/useCart';
 import CartItem from '../../cart/components/CartItem';
 

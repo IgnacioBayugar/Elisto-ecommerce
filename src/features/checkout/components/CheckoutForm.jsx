@@ -1,6 +1,3 @@
-
-import React, { useState } from 'react';
-
 const CheckoutForm = () => {
   const [form, setForm] = useState({
     name: '',
