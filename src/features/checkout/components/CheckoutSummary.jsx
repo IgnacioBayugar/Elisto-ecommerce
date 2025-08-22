@@ -2,9 +2,13 @@ import useCart from '../../cart/hooks/useCart';
 import CartItem from '../../cart/components/CartItem';
 
 const CheckoutSummary = () => {
-  const { state } = useCart();
+  const { state, dispatch } = useCart();
   const items = state.items || [];
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handleRemove = (id) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { id } });
+  };
 
   return (
     <div className="idb-checkout-summary">
@@ -22,7 +26,7 @@ const CheckoutSummary = () => {
                 price={item.price}
                 quantity={item.quantity}
                 thumbnail={item.thumbnail}
-                onRemove={null}
+                onRemove={handleRemove}
               />
             ))}
           </div>
