@@ -1,0 +1,41 @@
+.idb-checkout__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 370px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.idb-checkout__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.idb-checkout__field label {
+  font-weight: 500;
+  color: #222;
+}
+
+.idb-checkout__field input {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fafafa;
+}
+
+.idb-checkout__error {
+  color: #E85234;
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
+}
+
+.idb-checkout__button--confirm {
+  margin-top: 1rem;
+  align-self: flex-end;
+}

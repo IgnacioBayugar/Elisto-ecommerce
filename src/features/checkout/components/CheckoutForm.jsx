@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from 'react';
+import './CheckoutForm.scss';
 
 const CheckoutForm = ({ onConfirm }) => {
   const [form, setForm] = useState({
@@ -30,8 +31,8 @@ const CheckoutForm = ({ onConfirm }) => {
   };
 
   return (
-    <form className="idb-checkout-form" onSubmit={handleSubmit}>
-      <div className="idb-checkout-form__field">
+    <form className="idb-checkout__form" onSubmit={handleSubmit}>
+      <div className="idb-checkout__field">
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -40,9 +41,9 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.name}
           onChange={handleChange}
         />
-        {errors.name && <span className="idb-checkout-form__error">{errors.name}</span>}
+  {errors.name && <span className="idb-checkout__error">{errors.name}</span>}
       </div>
-      <div className="idb-checkout-form__field">
+  <div className="idb-checkout__field">
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -51,9 +52,9 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.email}
           onChange={handleChange}
         />
-        {errors.email && <span className="idb-checkout-form__error">{errors.email}</span>}
+  {errors.email && <span className="idb-checkout__error">{errors.email}</span>}
       </div>
-      <div className="idb-checkout-form__field">
+  <div className="idb-checkout__field">
         <label htmlFor="address">Address</label>
         <input
           type="text"
@@ -62,9 +63,9 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.address}
           onChange={handleChange}
         />
-        {errors.address && <span className="idb-checkout-form__error">{errors.address}</span>}
+  {errors.address && <span className="idb-checkout__error">{errors.address}</span>}
       </div>
-      <button className="idb-checkout-confirm" type="submit">
+  <button className="idb-checkout__button idb-checkout__button--confirm" type="submit">
         Confirmar compra
       </button>
     </form>

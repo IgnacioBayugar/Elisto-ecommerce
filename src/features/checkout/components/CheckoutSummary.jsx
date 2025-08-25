@@ -1,5 +1,6 @@
 import useCart from '../../cart/hooks/useCart';
 import CartItem from '../../cart/components/CartItem';
+import './CheckoutSummary.scss';
 
 const CheckoutSummary = () => {
   const { state, dispatch } = useCart();
@@ -11,13 +12,13 @@ const CheckoutSummary = () => {
   };
 
   return (
-    <div className="idb-checkout-summary">
+  <div className="idb-checkout__summary">
       <h3>Resumen del pedido</h3>
       {items.length === 0 ? (
         <p>El carrito está vacío.</p>
       ) : (
         <>
-          <div className="idb-checkout-summary__items">
+          <div className="idb-checkout__items">
             {items.map(item => (
               <CartItem
                 key={item.id}
@@ -30,7 +31,7 @@ const CheckoutSummary = () => {
               />
             ))}
           </div>
-          <div className="idb-checkout-summary__total">
+          <div className="idb-checkout__total">
             <p>Total:</p> <p>${total.toFixed(2)}</p>
           </div>
         </>

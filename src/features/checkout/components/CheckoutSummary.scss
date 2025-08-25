@@ -1,0 +1,21 @@
+.idb-checkout__summary {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.idb-checkout__items {
+  margin-bottom: 1.5rem;
+}
+
+.idb-checkout__total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #E85234;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}

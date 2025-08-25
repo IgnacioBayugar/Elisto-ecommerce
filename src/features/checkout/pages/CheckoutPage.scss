@@ -1,0 +1,70 @@
+.idb-checkout__actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+  background: #fff;
+  gap: 1rem;
+}
+.idb-checkout__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.idb-checkout__actions--single {
+  justify-content: flex-end;
+}
+
+.idb-checkout__actions--split {
+  justify-content: space-between;
+}
+
+.idb-checkout__button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.idb-checkout__button--continue,
+.idb-checkout__button--confirm {
+  background: #E85234;
+  color: #fff;
+  &:hover {
+    background: #c43c1e;
+    box-shadow: 0 4px 12px rgba(232,82,52,0.15);
+  }
+  &:disabled {
+    background: #f6b8a6;
+    cursor: not-allowed;
+  }
+}
+
+.idb-checkout__button--back {
+  background: #004080;
+  color: #fff;
+  &:hover {
+    background: #00264d;
+    box-shadow: 0 4px 12px rgba(0,64,128,0.15);
+  }
+}
+
+@media (max-width: 600px) {
+  .idb-checkout__actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .idb-checkout__button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem 0;
+  }
+}
