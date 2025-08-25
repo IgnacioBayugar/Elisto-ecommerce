@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, forwardRef, useImperativeHandle } from 'react';
 import './CheckoutForm.scss';
 
-const CheckoutForm = ({ onConfirm }) => {
+const CheckoutForm = forwardRef((props, ref) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -22,16 +22,12 @@ const CheckoutForm = ({ onConfirm }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (validate()) {
-      if (onConfirm) onConfirm();
-    }
-  };
+  useImperativeHandle(ref, () => ({
+    validate: () => validate()
+  }));
 
   return (
-    <form className="idb-checkout__form" onSubmit={handleSubmit}>
+    <form className="idb-checkout__form">
       <div className="idb-checkout__field">
         <label htmlFor="name">Name</label>
         <input
@@ -41,9 +37,9 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.name}
           onChange={handleChange}
         />
-  {errors.name && <span className="idb-checkout__error">{errors.name}</span>}
+        {errors.name && <span className="idb-checkout__error">{errors.name}</span>}
       </div>
-  <div className="idb-checkout__field">
+      <div className="idb-checkout__field">
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -52,9 +48,9 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.email}
           onChange={handleChange}
         />
-  {errors.email && <span className="idb-checkout__error">{errors.email}</span>}
+        {errors.email && <span className="idb-checkout__error">{errors.email}</span>}
       </div>
-  <div className="idb-checkout__field">
+      <div className="idb-checkout__field">
         <label htmlFor="address">Address</label>
         <input
           type="text"
@@ -63,13 +59,10 @@ const CheckoutForm = ({ onConfirm }) => {
           value={form.address}
           onChange={handleChange}
         />
-  {errors.address && <span className="idb-checkout__error">{errors.address}</span>}
+        {errors.address && <span className="idb-checkout__error">{errors.address}</span>}
       </div>
-  <button className="idb-checkout__button idb-checkout__button--confirm" type="submit">
-        Confirmar compra
-      </button>
     </form>
   );
-};
+});
 
 export default CheckoutForm;
