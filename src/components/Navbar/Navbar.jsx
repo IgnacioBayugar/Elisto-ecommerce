@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getCategories } from '../../utils/getCategories';
 import WidgetCart from '../../features/cart/components/CartWidget';
 import './Navbar.scss';
@@ -97,10 +98,13 @@ function Navbar({ onCategorySelect }) {
                 </ul>
               </li>
               <li className="nav-item">
-                <a href="/help" className="nav-link idb-navbar__link">Help</a>
+                <Link to="/" className="nav-link idb-navbar__link">Home</Link>
               </li>
               <li className="nav-item">
-                <a href="/mis-compras" className="nav-link idb-navbar__link">My Purchases</a>
+                <Link to="/offers" className="nav-link idb-navbar__link">Offers</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/help" className="nav-link idb-navbar__link">Help</Link>
               </li>
             </ul>
           </div>
