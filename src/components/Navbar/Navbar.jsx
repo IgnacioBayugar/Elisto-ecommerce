@@ -84,6 +84,15 @@ function Navbar({ onCategorySelect }) {
                   Categories
                 </button>
                 <ul className={`idb-dropdown dropdown-menu dropdown-menu-dark${dropdownOpen ? ' show' : ''}`} style={{ position: 'absolute', left: 0, top: '100%', minWidth: '200px', zIndex: 1000 }}>
+                  <li key="all">
+                    <button
+                      className="dropdown-item"
+                      type="button"
+                      onClick={() => handleCategoryClick(null)}
+                    >
+                      All
+                    </button>
+                  </li>
                   {categories.map(category => (
                     <li key={category}>
                       <button

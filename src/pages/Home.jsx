@@ -1,9 +1,9 @@
 import ProductList from '../features/products/components/ProductList/ProductList';
 
-export default function Home() {
+export default function Home({ selectedCategory }) {
   return (
     <main>
-      <ProductList />
+      <ProductList category={selectedCategory} />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { CartProvider } from './features/cart/context/CartContext';
 import Home from './pages/Home';
 import Offers from './pages/Offers';
@@ -10,20 +11,27 @@ import CartPage from './features/cart/pages/CartPage';
 import CheckoutPage from './features/checkout/pages/CheckoutPage';
 
 export default function App() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setSelectedCategory(null);
+    }
+  }, [location.pathname]);
+
   return (
     <CartProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/offers" element={<Offers />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Navbar onCategorySelect={setSelectedCategory} />
+      <Routes>
+        <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
+        <Route path="/offers" element={<Offers />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+      </Routes>
+      <Footer />
     </CartProvider>
   );
 }
