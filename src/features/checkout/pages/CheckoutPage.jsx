@@ -13,10 +13,10 @@ const CheckoutPage = () => {
   const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
-    if (items.length === 0) {
+    if (items.length === 0 && !confirmed) {
       navigate("/");
     }
-  }, [items, navigate]);
+  }, [items, navigate, confirmed]);
 
   const handleContinue = () => setStep(2);
 
