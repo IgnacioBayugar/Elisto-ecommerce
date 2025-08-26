@@ -29,7 +29,7 @@ function Product({ product }) {
           alt={product.title}
           className="idb-product-card__image card-img-top"
         />
-        <div className="idb-product-card__body pt-2 card-body d-flex flex-column justify-content-between">
+        <div className="idb-product-card__body pt-2 pb-1 card-body d-flex flex-column justify-content-between">
           <h5 className="idb-product-card__title mb-1">{product.title}</h5>
           <div className="idb-product-card__rating mb-2">
             <StarRating rating={product.rating} />

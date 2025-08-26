@@ -46,7 +46,7 @@ function Navbar({ onCategorySelect }) {
   }, [dropdownOpen]);
 
   return (
-    <nav className="idb-navbar navbar navbar-light">
+    <nav className="idb-navbar navbar navbar-light pt-3">
       <div className="container-fluid idb-container">
         <div className="row w-100 align-items-center">
           <div className="col-auto d-flex align-items-center">

@@ -3,16 +3,18 @@ $secondary-color: #E85234;
 
 
  .idb-product-card {
-   background-color: #fff;
+   background: #fff;
    color: #222;
-   border-radius: 0.5rem;
+   border-radius: 12px;
    overflow: hidden;
-   box-shadow: 0 2px 8px #0001;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
    display: flex;
    flex-direction: column;
-   border: none;
-   height: 100%;
+   justify-content: space-between;
+   min-height: 420px;
    transition: box-shadow 0.3s, transform 0.3s;
+   border: none;
+
    &:hover {
      box-shadow: 0 6px 24px #0002;
      transform: translateY(-0.3rem) scale(1.03);
@@ -27,7 +29,6 @@ $secondary-color: #E85234;
   }
 
   &__body {
-    padding: 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -69,23 +70,28 @@ $secondary-color: #E85234;
     font-size: 0.7rem;
   }
 
+  &__footer {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
   &__add-to-cart-btn {
     display: block;
     width: 100%;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0rem;
     background-color: $secondary-color;
     color: #fff;
     border: none;
-    border-radius: 0.3rem;
+    border-radius: 8px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    margin-top: 0.5rem;
+    transition: background 0.3s;
 
-    &:hover:not(:disabled) {
+    &:hover {
       background-color: darken($secondary-color, 10%);
-      transform: scale(1.01);
     }
 
     &:disabled {

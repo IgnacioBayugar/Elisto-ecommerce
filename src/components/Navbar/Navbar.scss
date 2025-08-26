@@ -49,8 +49,6 @@ $text-color: #ffffff;
 
   &__actions {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
 
     .widget-cart {
       margin-left: 0.5rem;
@@ -59,8 +57,8 @@ $text-color: #ffffff;
         background-color: $secondary-color;
         color: $text-color;
         border: none;
-        border-radius: 8px;
-        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        padding: 0.6rem 0.9rem;
         font-size: 1.2rem;
         transition: background 0.3s;
         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -69,7 +67,6 @@ $text-color: #ffffff;
           background-color: darken($secondary-color, 10%);
           color: $text-color;
         }
-        position: relative;
       }
 
       &__badge {

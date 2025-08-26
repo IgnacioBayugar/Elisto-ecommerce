@@ -1,3 +1,4 @@
+import './styles/main.scss';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -22,15 +23,19 @@ export default function App() {
 
   return (
     <CartProvider>
-      <Navbar onCategorySelect={setSelectedCategory} />
-      <Routes>
-        <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
-        <Route path="/offers" element={<Offers />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-      </Routes>
+      <header>
+        <Navbar onCategorySelect={setSelectedCategory} />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+        </Routes>
+      </main>
       <Footer />
     </CartProvider>
   );
