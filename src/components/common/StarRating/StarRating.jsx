@@ -14,6 +14,7 @@ function StarRating({ rating, maxStars = 5 }) {
       {Array.from({ length: emptyStars }).map((_, i) => (
         <i key={`empty-${i}`} className="bi bi-star text-secondary"></i>
       ))}
+      <span className="ms-1 small text-secondary">{rating.toFixed(1)}</span>
     </span>
   );
 }

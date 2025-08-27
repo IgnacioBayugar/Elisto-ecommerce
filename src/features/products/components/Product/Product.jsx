@@ -30,14 +30,14 @@ function Product({ product }) {
           className="idb-product-card__image card-img-top"
         />
         <div className="idb-product-card__body pt-2 pb-1 card-body d-flex flex-column justify-content-between">
-          <h5 className="idb-product-card__title mb-1">{product.title}</h5>
+          <h5 className="idb-product-card__title mb-1 text-dark">{product.title}</h5>
           <div className="idb-product-card__rating mb-2">
             <StarRating rating={product.rating} />
           </div>
           <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1">
             <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
             <span
-              className={`idb-product-card__stock badge ${product.stock > 0 ? 'bg-secondary' : 'bg-danger'}`}
+              className={`idb-product-card__stock badge ${product.stock > 0 ? '' : 'bg-danger'}`}
               title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
             >
               {product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}

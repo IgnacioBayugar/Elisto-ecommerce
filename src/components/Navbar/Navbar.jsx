@@ -51,13 +51,13 @@ function Navbar({ onCategorySelect }) {
         <div className="idb-navbar__row d-flex align-items-center w-100">
           <div className="idb-navbar__logo-wrapper">
             <a href="/" className="idb-navbar__logo m-0">
-              E-listo
+              E-listo!
             </a>
           </div>
           <div className="idb-navbar__search-wrapper">
             <form className="idb-navbar__search">
               <input
-                className="idb-navbar__search-input p-1"
+                className="idb-navbar__search-input ps-2"
                 type="search"
                 placeholder="Buscar productos..."
                 aria-label="Search"

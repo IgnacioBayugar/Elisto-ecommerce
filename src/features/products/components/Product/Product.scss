@@ -37,7 +37,7 @@ $secondary-color: #E85234;
 
   &__title {
     font-size: 1rem;
-    color: #222;
+    font-weight: 500;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -58,11 +58,10 @@ $secondary-color: #E85234;
     white-space: normal;
     font-size: 0.9rem;
     color: #444;
-    margin-bottom: 0.5rem;
   }
 
   &__price {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: $secondary-color;
     margin-bottom: 0;
@@ -70,6 +69,7 @@ $secondary-color: #E85234;
 
   &__stock{
     font-size: 0.7rem;
+    background-color: #b4b4b4;
   }
 
   &__footer {
