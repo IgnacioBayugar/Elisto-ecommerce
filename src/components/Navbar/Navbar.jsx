@@ -47,76 +47,76 @@ function Navbar({ onCategorySelect }) {
 
   return (
     <nav className="idb-navbar navbar navbar-light pt-3">
-      <div className="container-fluid idb-container">
-        <div className="row w-100 align-items-center">
-          <div className="col-auto d-flex align-items-center">
-            <a href="/" className="idb-navbar__logo">
+      <div className="container-fluid idb-container p-0">
+        <div className="idb-navbar__row d-flex align-items-center w-100">
+          <div className="idb-navbar__logo-wrapper">
+            <a href="/" className="idb-navbar__logo m-0">
               E-listo
             </a>
           </div>
-          <div className="col d-flex align-items-center justify-content-center">
-            <form className="d-flex idb-navbar__search">
+          <div className="idb-navbar__search-wrapper">
+            <form className="idb-navbar__search">
               <input
-                className="idb-navbar__search-input form-control"
+                className="idb-navbar__search-input p-1"
                 type="search"
-                placeholder="Buscar productos, marcas y más..."
+                placeholder="Buscar productos..."
                 aria-label="Search"
               />
-              <button className="btn idb-navbar__search-button" type="submit">
+              <button className="idb-navbar__search-button py-1 px-2" type="submit">
                 <i className="bi bi-search"></i>
               </button>
             </form>
           </div>
-          <div className="col-auto d-flex align-items-center idb-navbar__actions">
-            <WidgetCart />
+          <div className="idb-navbar__actions-wrapper">
+            <div className="idb-navbar__actions m-0">
+              <WidgetCart />
+            </div>
           </div>
         </div>
-        <div className="row w-100 mt-3">
-          <div className="col d-flex justify-content-center">
-            <ul className="navbar-nav flex-row align-items-center">
-              <li className={`nav-item dropdown${dropdownOpen ? ' show' : ''}`} style={{ position: 'relative' }}>
-                <button
-                  className="btn idb-dropdown dropdown-toggle"
-                  type="button"
-                  aria-expanded={dropdownOpen}
-                  onClick={handleDropdownToggle}
-                >
-                  Categories
-                </button>
-                <ul className={`idb-dropdown dropdown-menu dropdown-menu-dark${dropdownOpen ? ' show' : ''}`} style={{ position: 'absolute', left: 0, top: '100%', minWidth: '200px', zIndex: 1000 }}>
-                  <li key="all">
+        <div className="idb-navbar__nav-row d-flex justify-content-center mt-3 w-100">
+          <ul className="navbar-nav flex-row align-items-center idb-navbar__nav-list">
+            <li className={`nav-item dropdown${dropdownOpen ? ' show' : ''}`}>
+              <button
+                className="btn idb-dropdown dropdown-toggle"
+                type="button"
+                aria-expanded={dropdownOpen}
+                onClick={handleDropdownToggle}
+              >
+                Categories
+              </button>
+              <ul className={`idb-dropdown dropdown-menu dropdown-menu-dark${dropdownOpen ? ' show' : ''} idb-navbar__dropdown-menu`}>
+                <li key="all">
+                  <button
+                    className="dropdown-item"
+                    type="button"
+                    onClick={() => handleCategoryClick(null)}
+                  >
+                    All
+                  </button>
+                </li>
+                {categories.map(category => (
+                  <li key={category}>
                     <button
                       className="dropdown-item"
                       type="button"
-                      onClick={() => handleCategoryClick(null)}
+                      onClick={() => handleCategoryClick(category)}
                     >
-                      All
+                      {category}
                     </button>
                   </li>
-                  {categories.map(category => (
-                    <li key={category}>
-                      <button
-                        className="dropdown-item"
-                        type="button"
-                        onClick={() => handleCategoryClick(category)}
-                      >
-                        {category}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link to="/" className="nav-link idb-navbar__link">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/offers" className="nav-link idb-navbar__link">Offers</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/help" className="nav-link idb-navbar__link">Help</Link>
-              </li>
-            </ul>
-          </div>
+                ))}
+              </ul>
+            </li>
+            <li className="nav-item">
+              <Link to="/" className="nav-link idb-navbar__link">Inicio</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/offers" className="nav-link idb-navbar__link">Ofertas</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/help" className="nav-link idb-navbar__link">Ayuda</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
