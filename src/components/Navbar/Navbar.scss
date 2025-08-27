@@ -5,6 +5,7 @@ $text-color: #ffffff;
 .idb-navbar {
   background-color: $primary-color;
   color: $text-color;
+  z-index: 1;
 
   &__logo {
     font-size: 1.5rem;
@@ -147,7 +148,7 @@ $text-color: #ffffff;
       left: 0;
       top: 100%;
       min-width: 200px;
-      z-index: 1000;
+      z-index: 1;
       background-color: $primary-color;
       border: none;
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
