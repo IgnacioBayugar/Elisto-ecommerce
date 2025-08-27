@@ -22,7 +22,7 @@ function Product({ product }) {
   };
 
   return (
-    <div className="idb-product-card card h-100 shadow-sm">
+    <div className="idb-product-card card">
       <Link to={`/product/${product.id}`} className="idb-product-card-link text-decoration-none">
         <img
           src={product.thumbnail || product.images?.[0]}
@@ -46,15 +46,6 @@ function Product({ product }) {
           <p className="idb-product-card__description card-text m-0">{product.description}</p>
         </div>
       </Link>
-      <div className="idb-product-card__actions card-footer bg-transparent border-0 p-2">
-        <button
-          className="idb-product-card__add-to-cart-btn"
-          onClick={handleAddToCart}
-          disabled={product.stock <= 0}
-        >
-          Agregar al carrito
-        </button>
-      </div>
     </div>
   );
 }
