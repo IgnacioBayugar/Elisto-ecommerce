@@ -1,3 +1,16 @@
+.idb-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.idb-main-content {
+  flex: 1;
+}
+
+.idb-footer {
+  margin-top: auto;
+}
 $primary-color: #004080;
 
 .idb-container {
