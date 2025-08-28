@@ -18,5 +18,4 @@ export async function fetchProductsByCategory(limitPerCategory = 10) {
     console.error('Error fetching products by category:', error);
     return [];
   }
-
 }

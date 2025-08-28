@@ -1,8 +1,8 @@
+
 $primary-color: #004080;
 $secondary-color: #E85234;
 
-
- .idb-product-card {
+.idb-product-card {
    background: #fff;
    color: #222;
    border-radius: 12px;
@@ -15,11 +15,11 @@ $secondary-color: #E85234;
    transition: box-shadow 0.3s, transform 0.3s;
    border: none;
 
-   &:hover {
-     box-shadow: 0 6px 24px #00000055;
-     transform: translateY(-0.3rem) scale(1.03);
-     z-index: 2;
-   }
+  &:hover {
+    box-shadow: 0 6px 24px #00000055;
+    transform: translateY(-0.3rem) scale(1.03);
+    z-index: 2;
+  }
 
   &__image {
     width: 100%;
@@ -57,7 +57,7 @@ $secondary-color: #E85234;
     text-overflow: ellipsis;
     white-space: normal;
     font-size: 0.9rem;
-    color: #444;
+    color: #777;
   }
 
   &__price {
@@ -67,9 +67,61 @@ $secondary-color: #E85234;
     margin-bottom: 0;
   }
 
-  &__stock{
+  &__stock-badge {
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+    top: auto;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 12px 0px 0px 0px;
+    background-color: #cacaca;
+    color: #222;
+    font-weight: 400;
+    box-shadow: none;
+    border: none;
+    z-index: 1;
+  }
+
+  &__ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 24px;
+    background: $secondary-color;
+    color: #fff;
     font-size: 0.7rem;
-    background-color: #b4b4b4;
+    font-weight: 600;
+    text-align: center;
+    line-height: 24px;
+    transform: rotate(-20deg) translate(-18px, 8px);
+    box-shadow: 0 2px 8px #0002;
+    z-index: 2;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+  }
+
+  &__price-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  &__price-final {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $secondary-color;
+    margin-bottom: 0;
+  }
+
+  &__price-old {
+    font-size: 0.95rem;
+    color: #777;
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-bottom: 0;
   }
 
   &__footer {
