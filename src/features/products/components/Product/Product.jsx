@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import StarRating from '../../../../components/common/StarRating';
 import useCart from '../../../cart/hooks/useCart';
 
-function Product({ product }) {
+function Product({ product, showDiscount }) {
   const { dispatch } = useCart();
   if (!product) return null;
 
@@ -21,6 +21,12 @@ function Product({ product }) {
     });
   };
 
+  // Calcular precio con descuento si corresponde
+  const hasDiscount = product.discountPercentage && product.discountPercentage > 0;
+  const discountedPrice = hasDiscount
+    ? (product.price * (1 - product.discountPercentage / 100)).toFixed(2)
+    : product.price;
+
   return (
     <div className="idb-product-card card">
       <Link to={`/product/${product.id}`} className="idb-product-card-link text-decoration-none">
@@ -35,7 +41,21 @@ function Product({ product }) {
             <StarRating rating={product.rating} />
           </div>
           <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1">
-            <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
+            {showDiscount && hasDiscount ? (
+              <>
+                <span className="idb-product-card__price-original text-muted text-decoration-line-through me-2">
+                  ${product.price}
+                </span>
+                <span className="idb-product-card__price-discounted fw-bold text-success">
+                  ${discountedPrice}
+                </span>
+                <span className="idb-product-card__discount badge bg-danger ms-2">
+                  -{product.discountPercentage}%
+                </span>
+              </>
+            ) : (
+              <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
+            )}
             <span
               className={`idb-product-card__stock badge ${product.stock > 0 ? '' : 'bg-danger'}`}
               title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
