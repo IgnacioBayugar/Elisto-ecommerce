@@ -1,3 +1,5 @@
+import './StarRating.scss';
+
 function StarRating({ rating, maxStars = 5 }) {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.25 && rating % 1 < 0.75;
@@ -6,13 +8,13 @@ function StarRating({ rating, maxStars = 5 }) {
   return (
     <span className="d-flex align-items-center">
       {Array.from({ length: fullStars }).map((_, i) => (
-        <i key={`full-${i}`} className="bi bi-star-fill text-warning"></i>
+        <i key={`full-${i}`} className="bi bi-star-fill text-warning star-rating-icon"></i>
       ))}
       {hasHalfStar && (
-        <i key="half" className="bi bi-star-half text-warning"></i>
+        <i key="half" className="bi bi-star-half text-warning star-rating-icon"></i>
       )}
       {Array.from({ length: emptyStars }).map((_, i) => (
-        <i key={`empty-${i}`} className="bi bi-star text-secondary"></i>
+        <i key={`empty-${i}`} className="bi bi-star text-secondary star-rating-icon"></i>
       ))}
       <span className="ms-1 small text-secondary">{rating.toFixed(1)}</span>
     </span>

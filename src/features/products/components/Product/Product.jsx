@@ -37,10 +37,16 @@ function Product({ product, showDiscount }) {
         />
         <div className="idb-product-card__body pt-2 pb-1 card-body d-flex flex-column justify-content-between">
           <h5 className="idb-product-card__title mb-1 text-dark">{product.title}</h5>
-          <div className="idb-product-card__rating mb-2">
+          <div className="idb-product-card__rating mb-2 d-flex align-items-center gap-2">
             <StarRating rating={product.rating} />
+            <span
+              className={`idb-product-card__stock badge ${product.stock > 0 ? '' : 'bg-danger'}`}
+              title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
+            >
+              {product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
+            </span>
           </div>
-          <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1 w-100">
+          <div className="idb-product-card__price-stock d-flex justify-content-start align-items-center mb-1 w-100">
             <div className="d-flex flex-column align-items-start">
               {showDiscount && hasDiscount ? (
                 <>
@@ -52,7 +58,7 @@ function Product({ product, showDiscount }) {
                       ${discountedPrice}
                     </span>
                   </div>
-                  <span className="idb-product-card__discount badge bg-danger">
+                  <span className="idb-product-card__discount small badge bg-danger">
                     -{product.discountPercentage}%
                   </span>
                 </>
@@ -60,12 +66,6 @@ function Product({ product, showDiscount }) {
                 <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
               )}
             </div>
-            <span
-              className={`idb-product-card__stock badge ${product.stock > 0 ? '' : 'bg-danger'}`}
-              title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
-            >
-              {product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
-            </span>
           </div>
           <p className="idb-product-card__description card-text m-0">{product.description}</p>
         </div>
