@@ -18,7 +18,6 @@ $secondary-color: #E85234;
   &:hover {
     box-shadow: 0 6px 24px #00000055;
     transform: translateY(-0.3rem) scale(1.03);
-    z-index: 2;
   }
 
   &__image {
@@ -80,7 +79,6 @@ $secondary-color: #E85234;
     font-weight: 400;
     box-shadow: none;
     border: none;
-    z-index: 1;
   }
 
   &__ribbon {
@@ -97,7 +95,6 @@ $secondary-color: #E85234;
     line-height: 24px;
     transform: rotate(-20deg) translate(-18px, 8px);
     box-shadow: 0 2px 8px #0002;
-    z-index: 2;
     pointer-events: none;
     letter-spacing: 0.5px;
   }
