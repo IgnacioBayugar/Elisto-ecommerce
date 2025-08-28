@@ -40,22 +40,26 @@ function Product({ product, showDiscount }) {
           <div className="idb-product-card__rating mb-2">
             <StarRating rating={product.rating} />
           </div>
-          <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1">
-            {showDiscount && hasDiscount ? (
-              <>
-                <span className="idb-product-card__price-original text-muted text-decoration-line-through me-2">
-                  ${product.price}
-                </span>
-                <span className="idb-product-card__price-discounted fw-bold text-success">
-                  ${discountedPrice}
-                </span>
-                <span className="idb-product-card__discount badge bg-danger ms-2">
-                  -{product.discountPercentage}%
-                </span>
-              </>
-            ) : (
-              <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
-            )}
+          <div className="idb-product-card__price-stock d-flex justify-content-between align-items-center mb-1 w-100">
+            <div className="d-flex flex-column align-items-start">
+              {showDiscount && hasDiscount ? (
+                <>
+                  <div className="d-flex align-items-center">
+                    <span className="idb-product-card__price-original text-muted text-decoration-line-through small me-1">
+                      ${product.price}
+                    </span>
+                    <span className="idb-product-card__price-discounted fw-bold text-success">
+                      ${discountedPrice}
+                    </span>
+                  </div>
+                  <span className="idb-product-card__discount badge bg-danger">
+                    -{product.discountPercentage}%
+                  </span>
+                </>
+              ) : (
+                <p className="idb-product-card__price card-text fw-bold m-0">${product.price}</p>
+              )}
+            </div>
             <span
               className={`idb-product-card__stock badge ${product.stock > 0 ? '' : 'bg-danger'}`}
               title={product.stock > 0 ? `Stock: ${product.stock}` : 'Sin stock'}
