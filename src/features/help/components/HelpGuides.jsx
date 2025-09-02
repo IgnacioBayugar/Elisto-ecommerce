@@ -2,25 +2,25 @@ import './HelpGuides.scss';
 
 const guides = [
   {
-    icon: '🚚',
+    icon: 'bi-truck',
     title: 'Envíos y devoluciones',
     text: 'Todo lo que necesitás saber sobre envíos, devoluciones y seguimiento.',
     link: '#',
   },
   {
-    icon: '💳',
+    icon: 'bi-credit-card',
     title: 'Pagos y facturación',
     text: 'Información sobre métodos de pago, facturación y reembolsos.',
     link: '#',
   },
   {
-    icon: '👤',
+    icon: 'bi-person',
     title: 'Administrar mi cuenta',
     text: 'Gestioná tus datos, seguridad y preferencias de usuario.',
     link: '#',
   },
   {
-    icon: '🔒',
+    icon: 'bi-shield-lock',
     title: 'Seguridad y privacidad',
     text: 'Consejos y ayuda para proteger tu información personal.',
     link: '#',
@@ -35,7 +35,7 @@ export default function HelpGuides() {
           {guides.map((guide) => (
             <div className="col-12 col-md-6 col-lg-3 d-flex" key={guide.title}>
               <div className="idb-help-page__guides-card w-100">
-                <span className="idb-help-page__guides-icon">{guide.icon}</span>
+                <span className={`idb-help-page__guides-icon bi ${guide.icon}`}></span>
                 <div className="idb-help-page__guides-title">{guide.title}</div>
                 <div className="idb-help-page__guides-text">{guide.text}</div>
                 <a className="idb-help-page__guides-link" href={guide.link}>
