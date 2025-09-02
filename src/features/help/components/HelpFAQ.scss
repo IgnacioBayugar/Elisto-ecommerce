@@ -1,0 +1,64 @@
+$primary-color: #004080;
+$secondary-color: #E85234;
+
+.idb-help-page__faq {
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+
+  &-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 1.2rem;
+    text-align: left;
+    letter-spacing: -0.5px;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  &-category {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    padding: 1.2rem 1rem;
+
+    &-title {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: $secondary-color;
+      margin-bottom: 0.6rem;
+    }
+  }
+  &-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  &-item {
+    details {
+      width: 100%;
+    }
+  }
+  &-question {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a2a4a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  &-answer {
+    font-size: 0.97rem;
+    color: #3a4a5a;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+    line-height: 1.6;
+  }
+}

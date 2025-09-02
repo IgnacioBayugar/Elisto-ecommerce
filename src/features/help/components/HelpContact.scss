@@ -1,0 +1,62 @@
+$primary-color: #004080;
+$secondary-color: #E85234;
+
+.idb-help-page__contact {
+  max-width: 500px;
+  margin: 0 auto 2.5rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 2rem 1.2rem;
+  text-align: center;
+  border-top: 4px solid $primary-color;
+
+  &-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.7rem;
+  }
+  &-text {
+    font-size: 1rem;
+    color: #3a4a5a;
+    margin-bottom: 1.2rem;
+  }
+  &-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  &-link {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+
+    &--email {
+      background: $primary-color;
+      color: #fff;
+      &:hover {
+        background: $secondary-color;
+      }
+    }
+    &--phone {
+      background: #f7e7d9;
+      color: $secondary-color;
+      &:hover {
+        background: #ffd6b3;
+      }
+    }
+    &--chat {
+      background: $secondary-color;
+      color: #fff;
+      &:hover {
+        background: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
