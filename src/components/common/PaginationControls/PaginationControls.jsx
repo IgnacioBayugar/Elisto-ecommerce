@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+// import { useEffect, useRef } from 'react';
+import './PaginationControls.scss'
 
 function getPages(current, total) {
   const pages = [];
@@ -16,35 +17,28 @@ function getPages(current, total) {
   return pages;
 }
 
+
 export default function PaginationControls({ currentPage, totalPages, onPageChange }) {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [currentPage]);
-
   if (totalPages <= 1) return null;
 
   const pages = getPages(currentPage, totalPages);
 
   return (
-    <nav aria-label="Paginación de productos" ref={containerRef}>
-      <ul className="idb-pagination m-0 py-3 pagination justify-content-center">
+    <nav aria-label="Paginación de productos">
+      <ul className="idb-pagination pagination justify-content-center py-3 m-0">
         <li className="idb-pagination__item page-item">
           <button
-            className="idb-pagination__button page-link"
+            className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
             aria-label="Página anterior"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
           >
-            &laquo;
+            <i className="bi bi-caret-left-fill" aria-hidden="true"></i>
           </button>
         </li>
         {pages.map((page, idx) =>
           typeof page === 'number' ? (
-            <li key={page} className="idb-pagination__item page-item">
+            <li key={page} className="idb-pagination__item px-1 page-item">
               <button
                 className={`idb-pagination__button page-link${currentPage === page ? ' idb-pagination__button--active' : ''}`}
                 aria-label={`Página ${page}`}
@@ -57,18 +51,18 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
             </li>
           ) : (
             <li key={page + idx} className="idb-pagination__item idb-pagination__ellipsis page-item disabled">
-              <span aria-hidden="true">...</span>
+              <span className="idb-pagination__ellipsis-text" aria-hidden="true">...</span>
             </li>
           )
         )}
         <li className="idb-pagination__item page-item">
           <button
-            className="idb-pagination__button page-link"
+            className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
             aria-label="Página siguiente"
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
-            &raquo;
+            <i className="bi bi-caret-right-fill" aria-hidden="true"></i>
           </button>
         </li>
       </ul>
