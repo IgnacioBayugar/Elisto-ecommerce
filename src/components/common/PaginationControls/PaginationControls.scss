@@ -1,65 +1,62 @@
-.idb-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 2rem 0 1.5rem 0;
-  padding: 0;
-  background: none;
-}
 
-.idb-pagination__item {
-  display: flex;
-  align-items: center;
-}
+$secondary-color: #E85234;
+$inactive-color: #b0b0b0;
+$primary-color: #004080;
 
-.idb-pagination__button {
-  min-width: 36px;
-  height: 36px;
-  border: none;
-  background: #fff;
-  color: #1a3366;
-  font-weight: 500;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px #0001;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+
+
+.idb-pagination__button:focus {
   outline: none;
-  margin: 0 2px;
-}
-
-.idb-pagination__button--active,
-.idb-pagination__button[aria-current="page"] {
-  background: #1a3366;
-  color: #fff;
-  font-weight: bold;
-  box-shadow: 0 0 0 2px #1a336633;
-}
-
-.idb-pagination__button:disabled {
-  color: #aaa;
-  background: #f0f4fa;
-  cursor: not-allowed;
   box-shadow: none;
+  background-color: inherit;
+  color: $secondary-color;
 }
 
-.idb-pagination__ellipsis {
-  min-width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 1.2rem;
-  background: none;
+// Extra: por si algún botón de Bootstrap se cuela
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-// Responsive: reduce tamaño en pantallas chicas
-@media (max-width: 600px) {
-  .idb-pagination__button,
-  .idb-pagination__ellipsis {
-    min-width: 28px;
-    height: 28px;
-    font-size: 0.95rem;
+.idb-pagination {
+  &__button {
+    background: $primary-color;
+    color: #fff;
+    border-radius: 0.4rem;
+    border: none;
+
+    &:hover {
+      scale: 1.05;
+      background-color: #004080;
+      cursor: pointer;
+      color: #fff;
+    }
+    &--active,
+    &[aria-current="page"] {
+      background: $secondary-color;
+      color: #fff;
+    }
+    &--arrow {
+      color: $secondary-color;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      &:hover {
+        background: none;
+        color: $secondary-color
+      }
+      &:disabled {
+        color: $inactive-color;
+      }
+    }
+  }
+  &__ellipsis {
+    color: $inactive-color;
+    font-size: 1.1rem;
+    background: none;
+    &-text {
+      font-weight: 600;
+    }
   }
 }
