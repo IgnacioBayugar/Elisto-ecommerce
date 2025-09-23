@@ -23,10 +23,10 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
 
   return (
     <nav aria-label="Paginación de productos">
-      <ul className="idb-pagination pagination justify-content-center py-3 m-0">
-        <li className="idb-pagination__item page-item">
+      <ul className="idb-pagination py-3 m-0">
+        <li className="idb-pagination__item">
           <button
-            className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
+            className="idb-pagination__button idb-pagination__button--arrow py-0"
             aria-label="Página anterior"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={isSinglePage || currentPage === 1}
@@ -36,9 +36,11 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
         </li>
         {pages.map((page, idx) =>
           typeof page === 'number' ? (
-            <li key={page} className="idb-pagination__item px-1 page-item">
+            <li key={page} className="idb-pagination__item">
               <button
-                className={`idb-pagination__button page-link${currentPage === page ? ' idb-pagination__button--active' : ''}`}
+                className={
+                  `idb-pagination__button${currentPage === page ? ' idb-pagination__button--active' : ''}`
+                }
                 aria-label={`Página ${page}`}
                 aria-current={currentPage === page ? 'page' : undefined}
                 onClick={() => onPageChange(page)}
@@ -48,14 +50,14 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
               </button>
             </li>
           ) : (
-            <li key={page + idx} className="idb-pagination__item idb-pagination__ellipsis page-item disabled">
-              <span className="idb-pagination__ellipsis-text" aria-hidden="true">...</span>
+            <li key={page + idx} className="idb-pagination__item idb-pagination__ellipsis">
+              <span className="idb-pagination__ellipsis-text" aria-hidden="true">. . .</span>
             </li>
           )
         )}
-        <li className="idb-pagination__item page-item">
+        <li className="idb-pagination__item">
           <button
-            className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
+            className="idb-pagination__button idb-pagination__button--arrow py-0"
             aria-label="Página siguiente"
             onClick={() => onPageChange(currentPage + 1)}
             disabled={isSinglePage || currentPage === totalPages}

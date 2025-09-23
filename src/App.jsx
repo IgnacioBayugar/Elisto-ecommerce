@@ -1,6 +1,4 @@
 import './styles/main.scss';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { CartProvider } from './features/cart/context/CartContext';
@@ -10,6 +8,7 @@ import Help from './pages/Help';
 import ProductDetail from './features/products/pages/ProductDetail/ProductDetail';
 import CartPage from './features/cart/pages/CartPage';
 import CheckoutPage from './features/checkout/pages/CheckoutPage';
+import Layout from './components/Layout/Layout'; // <-- Importa el nuevo Layout
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -23,22 +22,16 @@ export default function App() {
 
   return (
     <CartProvider>
-      <div className="idb-layout">
-        <header>
-          <Navbar onCategorySelect={setSelectedCategory} />
-        </header>
-        <main className="idb-main-content">
-          <Routes>
-            <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
-            <Route path="/offers" element={<Offers selectedCategory={selectedCategory} />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Layout onCategorySelect={setSelectedCategory}>
+        <Routes>
+          <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
+          <Route path="/offers" element={<Offers selectedCategory={selectedCategory} />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+        </Routes>
+      </Layout>
     </CartProvider>
   );
 }

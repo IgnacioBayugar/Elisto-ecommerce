@@ -3,12 +3,33 @@ $inactive-color: #b0b0b0;
 $primary-color: #004080;
 
 .idb-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
   &__button {
     background: $primary-color;
     color: #fff;
     border-radius: 0.4rem;
     border: none;
     transition: background 0.2s, color 0.2s, scale 0.2s;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover:not(:disabled) {
       scale: 1.05;
@@ -43,6 +64,8 @@ $primary-color: #004080;
       border: none;
       font-size: 1.5rem;
       font-weight: 700;
+      min-width: 2.2rem;
+      min-height: 2.2rem;
 
       &:hover:not(:disabled) {
         color: darken($secondary-color, 10%);
@@ -60,6 +83,11 @@ $primary-color: #004080;
     color: $inactive-color;
     font-size: 1.1rem;
     background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
 
     &-text {
       font-weight: 600;
