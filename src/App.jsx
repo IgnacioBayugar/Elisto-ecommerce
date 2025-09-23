@@ -21,24 +21,24 @@ export default function App() {
     }
   }, [location.pathname]);
 
-    return (
-      <CartProvider>
-        <div className="idb-layout">
-          <header>
-            <Navbar onCategorySelect={setSelectedCategory} />
-          </header>
-          <main className="idb-main-content">
-            <Routes>
-              <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
-              <Route path="/offers" element={<Offers />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </CartProvider>
-    );
+  return (
+    <CartProvider>
+      <div className="idb-layout">
+        <header>
+          <Navbar onCategorySelect={setSelectedCategory} />
+        </header>
+        <main className="idb-main-content">
+          <Routes>
+            <Route path="/" element={<Home selectedCategory={selectedCategory} />} />
+            <Route path="/offers" element={<Offers selectedCategory={selectedCategory} />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </CartProvider>
+  );
 }

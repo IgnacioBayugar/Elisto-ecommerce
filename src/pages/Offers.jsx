@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchProductsByCategory } from '../features/products/api/productApi';
 import PaginationControls from '../components/common/PaginationControls/PaginationControls';
 
-export default function Offers() {
+export default function Offers({ selectedCategory }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,8 +21,12 @@ export default function Offers() {
 
   if (loading) return <div className="text-center py-5">Cargando ofertas...</div>;
 
-  const totalPages = Math.ceil(products.length / pageSize);
-  const paginatedProducts = products.slice(
+  const filteredProducts = selectedCategory
+    ? products.filter(product => product.category === selectedCategory)
+    : products;
+
+  const totalPages = Math.ceil(filteredProducts.length / pageSize);
+  const paginatedProducts = filteredProducts.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );

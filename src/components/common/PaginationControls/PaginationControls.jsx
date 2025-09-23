@@ -1,4 +1,3 @@
-// import { useEffect, useRef } from 'react';
 import './PaginationControls.scss'
 
 function getPages(current, total) {
@@ -17,11 +16,10 @@ function getPages(current, total) {
   return pages;
 }
 
-
 export default function PaginationControls({ currentPage, totalPages, onPageChange }) {
-  if (totalPages <= 1) return null;
-
   const pages = getPages(currentPage, totalPages);
+
+  const isSinglePage = totalPages <= 1;
 
   return (
     <nav aria-label="Paginación de productos">
@@ -31,7 +29,7 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
             className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
             aria-label="Página anterior"
             onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
+            disabled={isSinglePage || currentPage === 1}
           >
             <i className="bi bi-caret-left-fill" aria-hidden="true"></i>
           </button>
@@ -44,7 +42,7 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
                 aria-label={`Página ${page}`}
                 aria-current={currentPage === page ? 'page' : undefined}
                 onClick={() => onPageChange(page)}
-                disabled={currentPage === page}
+                disabled={isSinglePage || currentPage === page}
               >
                 {page}
               </button>
@@ -60,7 +58,7 @@ export default function PaginationControls({ currentPage, totalPages, onPageChan
             className="idb-pagination__button idb-pagination__button--arrow py-0 page-link"
             aria-label="Página siguiente"
             onClick={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
+            disabled={isSinglePage || currentPage === totalPages}
           >
             <i className="bi bi-caret-right-fill" aria-hidden="true"></i>
           </button>
