@@ -10,7 +10,9 @@ export default function Layout({ children, onCategorySelect }) {
       <main className="idb-main-content bg-body-secondary">
         {children}
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

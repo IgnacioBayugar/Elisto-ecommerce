@@ -5,7 +5,7 @@ function Footer() {
 
   return (
     <footer className="idb-footer text-light pb-0 px-0 pt-3">
-      <div className="container">
+      <div className="container-fluid idb-container">
         <div className="row">
           <div className="col-md-4 mb-0">
             <h5 className="idb-footer__title">Navegación</h5>

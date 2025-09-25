@@ -1,9 +1,9 @@
-
 import Product from '../features/products/components/Product/Product';
 import { useEffect, useState } from 'react';
 import { fetchProductsByCategory } from '../features/products/api/productApi';
 import PaginationControls from '../components/common/PaginationControls/PaginationControls';
 import Section from '../components/Section/Section';
+import Container from '../components/Container/Container';
 
 export default function Offers({ selectedCategory }) {
   const [products, setProducts] = useState([]);
@@ -35,12 +35,12 @@ export default function Offers({ selectedCategory }) {
 
   return (
     <Section>
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={page => setCurrentPage(page)}
-      />
-      <div className="container-fluid">
+      <Container>
+        <PaginationControls
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={page => setCurrentPage(page)}
+        />
         <div className="row g-3">
           {paginatedProducts.length === 0 ? (
             <div className="col-12 text-center py-5">No hay ofertas para mostrar.</div>
@@ -52,12 +52,12 @@ export default function Offers({ selectedCategory }) {
             ))
           )}
         </div>
-      </div>
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={page => setCurrentPage(page)}
-      />
+        <PaginationControls
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={page => setCurrentPage(page)}
+        />
+      </Container>
     </Section>
   );
 }
