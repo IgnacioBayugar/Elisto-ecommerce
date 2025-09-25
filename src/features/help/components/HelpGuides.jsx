@@ -29,12 +29,12 @@ const guides = [
 
 export default function HelpGuides() {
   return (
-    <section className="idb-help-page__guides">
+    <section className="idb-help-page__guides m-auto">
       <div className="container-fluid">
         <div className="row g-3 justify-content-center">
           {guides.map((guide) => (
-            <div className="col-12 col-md-6 col-lg-3 d-flex" key={guide.title}>
-              <div className="idb-help-page__guides-card w-100">
+            <div className="col-12 col-md-6 col-lg-3 d-flex m-0" key={guide.title}>
+              <div className="idb-help-page__guides-card">
                 <span className={`idb-help-page__guides-icon bi ${guide.icon}`}></span>
                 <div className="idb-help-page__guides-title">{guide.title}</div>
                 <div className="idb-help-page__guides-text">{guide.text}</div>

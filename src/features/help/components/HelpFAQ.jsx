@@ -58,16 +58,16 @@ const faqs = [
 export default function HelpFAQ() {
   return (
     <section className="idb-help-page__faq">
-      <h2 className="idb-help-page__faq-title">Preguntas Frecuentes</h2>
+      <h2 className="idb-help-page__faq-title d-flex justify-content-center">Preguntas Frecuentes</h2>
       <div className="idb-help-page__faq-list">
         {faqs.map((cat) => (
           <div className="idb-help-page__faq-category" key={cat.category}>
-            <div className="idb-help-page__faq-category-title">{cat.category}</div>
+            <div className="idb-help-page__faq-category-title">&#8226; {cat.category}</div>
             <div className="idb-help-page__faq-items">
               {cat.questions.map((q) => (
                 <div className="idb-help-page__faq-item" key={q.q}>
                   <details>
-                    <summary className="idb-help-page__faq-question">&#8226; {q.q}</summary>
+                    <summary className="idb-help-page__faq-question">- {q.q}</summary>
                     <div className="idb-help-page__faq-answer">– {q.a}</div>
                   </details>
                 </div>

@@ -1,7 +1,9 @@
+
 import Product from '../features/products/components/Product/Product';
 import { useEffect, useState } from 'react';
 import { fetchProductsByCategory } from '../features/products/api/productApi';
 import PaginationControls from '../components/common/PaginationControls/PaginationControls';
+import Section from '../components/Section/Section';
 
 export default function Offers({ selectedCategory }) {
   const [products, setProducts] = useState([]);
@@ -32,7 +34,7 @@ export default function Offers({ selectedCategory }) {
   );
 
   return (
-    <div className="idb-container container-fluid">
+    <Section>
       <PaginationControls
         currentPage={currentPage}
         totalPages={totalPages}
@@ -56,6 +58,6 @@ export default function Offers({ selectedCategory }) {
         totalPages={totalPages}
         onPageChange={page => setCurrentPage(page)}
       />
-    </div>
+    </Section>
   );
 }
