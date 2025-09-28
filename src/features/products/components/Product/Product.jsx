@@ -18,7 +18,7 @@ function Product({ product, showDiscount }) {
             className="idb-product-card__image card-img-top"
           />
           <span
-            className={`idb-product-card__stock-badge badge position-absolute ${product.stock > 0 ? '' : 'bg-danger'}`}
+            className={`idb-product-card__stock-badge position-absolute ${product.stock > 0 ? '' : 'bg-danger'}`}
             title={product.stock > 0 ? `${product.stock} Disponibles` : 'Agotado'}
           >
             {product.stock > 0 ? `${product.stock} Disponibles` : 'Agotado'}

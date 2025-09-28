@@ -4,6 +4,7 @@ import { fetchProductsByCategory } from '../features/products/api/productApi';
 import PaginationControls from '../components/common/PaginationControls/PaginationControls';
 import Section from '../components/Section/Section';
 import Container from '../components/Container/Container';
+import { capitalizeFirst } from '../utils/stringUtils';
 
 export default function Offers({ selectedCategory }) {
   const [products, setProducts] = useState([]);
@@ -36,6 +37,8 @@ export default function Offers({ selectedCategory }) {
   return (
     <Section>
       <Container>
+        <h2 className='idb-title d-flex justify-content-center'>Explora nuestras ofertas</h2>
+        {selectedCategory && <h3 className='idb-category-title'>&#8226; {capitalizeFirst(selectedCategory)}</h3>}
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}
