@@ -10,12 +10,12 @@ export default function HelpHero() {
       <div className="idb-help-page__hero-search-wrapper">
         <form className="idb-help-page__hero-search" autoComplete="off">
           <input
-            className="idb-help-page__hero-search-input"
+            className="idb-help-page__hero-search-input py-2"
             type="text"
             placeholder="Escribí tu consulta…"
             aria-label="Buscar en el centro de ayuda"
           />
-          <button className="idb-help-page__hero-search-btn" type="submit">
+          <button className="idb-help-page__hero-search-btn py-2" type="submit">
             Buscar
           </button>
         </form>

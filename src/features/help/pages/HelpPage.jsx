@@ -13,8 +13,6 @@ export default function HelpPage() {
 					<HelpHero />
 					<HelpGuides />
 				</Container>
-			</Section>
-			<Section>
 				<Container>
 					<div className="row g-4 align-items-center">
 						<div className="col-12 col-md-6">

@@ -29,7 +29,7 @@ const guides = [
 
 export default function HelpGuides() {
   return (
-    <section className="idb-help-page__guides m-auto">
+    <section className="idb-help-page__guides pt-3 pb-4 m-auto">
       <div className="container-fluid">
         <div className="row g-3 justify-content-center">
           {guides.map((guide) => (

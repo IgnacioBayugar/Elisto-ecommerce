@@ -57,7 +57,7 @@ const faqs = [
 
 export default function HelpFAQ() {
   return (
-    <section className="idb-help-page__faq">
+    <section className="idb-help-page__faq pt-3">
       <h2 className="idb-help-page__faq-title d-flex justify-content-center">Preguntas Frecuentes</h2>
       <div className="idb-help-page__faq-list">
         {faqs.map((cat) => (
