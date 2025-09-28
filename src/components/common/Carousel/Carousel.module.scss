@@ -1,0 +1,54 @@
+$primary-color: #004080;
+$secondary-color: #E85234;
+$text-color: #ffffff;
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  color: $text-color;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.indicators {
+  display: flex;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $text-color;
+  opacity: 0.5;
+  border: none;
+  cursor: pointer;
+
+  &.active {
+    background: $secondary-color;
+    opacity: 1;
+  }
+}
