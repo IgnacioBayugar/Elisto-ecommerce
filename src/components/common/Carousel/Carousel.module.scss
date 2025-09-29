@@ -3,19 +3,20 @@ $secondary-color: #E85234;
 $text-color: #ffffff;
 
 .carousel {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $primary-color;
   color: $text-color;
   border-radius: 8px;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .arrow {
   background: none;
   border: none;
-  color: $text-color;
+  color: $secondary-color;
   cursor: pointer;
   font-size: 1.5rem;
 
@@ -29,13 +30,21 @@ $text-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
+  transition: opacity 0.4s;
+  opacity: 1;
+}
+
+.item-exit {
+  opacity: 0;
 }
 
 .indicators {
+  position: absolute;
+  left: 50%;
+  bottom: 0rem;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
-  margin-top: 1rem;
 }
 
 .indicator {

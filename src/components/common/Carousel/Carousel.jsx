@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import styles from './Carousel.module.css';
+import styles from './Carousel.module.scss';
 
 const Carousel = ({
   items = [],
@@ -14,11 +13,13 @@ const Carousel = ({
   const prev = () => setCurrent((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   const next = () => setCurrent((prev) => (prev === items.length - 1 ? 0 : prev + 1));
 
+  if (!items || items.length === 0) return null;
+
   return (
     <div className={`${styles.carousel} ${className}`}>
       {showArrows && (
         <button className={styles.arrow} onClick={prev} aria-label="Anterior">
-          <BsChevronLeft size={24} />
+          <i className="bi bi-chevron-left" style={{ fontSize: 24 }}></i>
         </button>
       )}
 
@@ -28,7 +29,7 @@ const Carousel = ({
 
       {showArrows && (
         <button className={styles.arrow} onClick={next} aria-label="Siguiente">
-          <BsChevronRight size={24} />
+          <i className="bi bi-chevron-right" style={{ fontSize: 24 }}></i>
         </button>
       )}
 
