@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { fetchProductsByCategory } from '../../api/productApi';
 import Product from '../Product/Product';
 import PaginationControls from '../../../../components/common/PaginationControls/PaginationControls';
-import Section from '../../../../components/Section/Section';
 
 function ProductList({ category }) {
   const [products, setProducts] = useState([]);
